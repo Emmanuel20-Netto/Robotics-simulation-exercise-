@@ -17,11 +17,11 @@ Identify every point(node) where two lines meet with a letter or number( e.g A..
   Find the adjescent nodes to between every nodes and write them down as like this (A  = {B, C,}.
 - step 4:
   Write down the cost to move between this nodes, from the starting node. using this formular
-  cost(adjescent node) = cost(starting) + distance from starting node to neighbor node. for        example if the starting node is 'A' and 'A' has a distance of '0' then the adjescent neighbor    from 'A' is 'B' and the distance at between them is   '10' then the cost to move from A to be    with be 0 + 10. after this change the maximum distance from infinity('∞') to 10.
+  cost(adjescent node) = cost(starting) + distance from starting node to neighbor node. for example if the starting node is 'A' and 'A' has a distance of '0' then the adjescent neighbor from 'A' is 'B' and the distance at between them is   '10' then the cost to move from A to be    with be 0 + 10. after this change the maximum distance from infinity('∞') to 10.
 - step 5:
    find the minimum cost neighbor for the next starting point, and mark all visited nodes do not    do it two times.
 - step 6:
-  compare the calculated cost with the present cost. if the present cost is less than the          calculated cost, replace it with the calculated cost to get the minimum cost between. if not     just keep the present cost to that node.
+  compare the calculated cost with the present cost. if the present cost is less than the calculated cost, replace it with the calculated cost to get the minimum cost between. if not just keep the present cost to that node.
 ### Map to be followed by the Robot
 The image below is the map to be followed by the Robot with each nose and an estimated distance between them.
 ![image](https://github.com/user-attachments/assets/79561983-7b94-484e-9b3c-a772e08eb702)
