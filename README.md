@@ -6,3 +6,6 @@ The goal of this simulation is to improve the line following behavior of our rob
 - Dijkstra algorithm: this will be used to find the shortest path on the graph between nodes as described above and will be programmed in micropython.
 - Thonny: We will use the Thonny ide for programming and flashing our ESP 32 with micropython.
 - webot: webot is used to run the simulation.
+### Dijkstra's algorithm 
+Finding the shortest path we will impement dijkstra algorithm in the following steps:
+- 
