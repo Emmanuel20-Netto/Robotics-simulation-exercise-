@@ -22,5 +22,9 @@ Identify every point(node) where two lines meet with a letter or number( e.g A..
    find the minimum cost neighbor for the next starting point, and mark all visited nodes do not    do it two times.
 - step 6:
   compare the calculated cost with the present cost. if the present cost is less than the          calculated cost, replace it with the calculated cost to get the minimum cost between. if not     just keep the present cost to that node.
+### Map to be followed by the Robot
+The image below is the map to be followed by the Robot with each nose and an estimated distance between them.
+![image](https://github.com/user-attachments/assets/ec507428-0efd-48bd-9643-b2965e373424)
+
 
      
