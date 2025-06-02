@@ -24,7 +24,8 @@ Identify every point(node) where two lines meet with a letter or number( e.g A..
   compare the calculated cost with the present cost. if the present cost is less than the calculated cost, replace it with the calculated cost to get the minimum cost between. if not just keep the present cost to that node.
 ### Map to be followed by the Robot
 The image below is the map to be followed by the Robot with each nose and an estimated distance between them.
-![image](https://github.com/user-attachments/assets/79561983-7b94-484e-9b3c-a772e08eb702)
+![image](https://github.com/user-attachments/assets/ce6520dd-e75a-4fb9-aa40-ac67382009d4)
+
 
 
 
