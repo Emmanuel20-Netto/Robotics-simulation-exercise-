@@ -1,4 +1,5 @@
 # this is just a stand-alone python script to show how dijkstra algorithm was implemented 
+# we did not use the heapq library in the micropython we just used math
 import sys
 import math
 import matplotlib.pyplot as plt
