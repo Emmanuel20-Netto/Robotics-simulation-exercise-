@@ -16,8 +16,7 @@ Identify every point(node) where two lines meet with a letter or number( e.g A..
 - step 3:
   Find the adjescent nodes to between every nodes and write them down as like this (A  = {B, C,}.
 - step 4:
-  Write down the cost to move between this nodes, from the starting node. using this formular
-  cost(adjescent node) = cost(starting) + distance from starting node to neighbor node. for example if the starting node is 'A' and 'A' has a distance of '0' then the adjescent neighbor from 'A' is 'B' and the distance at between them is   '10' then the cost to move from A to be    with be 0 + 10. after this change the maximum distance from infinity('∞') to 10.
+  use this formular to find the cost of the neighbor node cost(neighbor )= cost(current) + distance (current→neighbor)
 - step 5:
    find the minimum cost neighbor for the next starting point, and mark all visited nodes do not    do it two times.
 - step 6:
