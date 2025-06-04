@@ -25,9 +25,3 @@ Identify every point(node) where two lines meet with a letter or number( e.g A..
 ### Map to be followed by the Robot
 The image below is the map to be followed by the Robot with each nose and an estimated distance between them.
 ![image](https://github.com/user-attachments/assets/5461830e-90b1-461f-bb32-61d24dab0d89)
-
-
-
-
-
-     
