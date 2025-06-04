@@ -14,13 +14,13 @@ Identify every point(node) where two lines meet with a letter or number(e.g A...
 - step 2:
   Assign the a cost of infinity(∞) to every given node and always set the start node to zero(0) because the distance from the same point to that point is zero(0).
 - step 3:
-  Find the adjescent nodes to between every nodes and write them down as like this **(A  = {B, C,}**.
+  Find the adjescent nodes between every nodes and write them down as like this **(A  = {B, C,}**.
 - step 4:
   use this formular to find the cost of the neighbor node **cost(neighbor) = cost(current) + distance (current→neighbor)**
 - step 5:
    find the minimum cost neighbor for the next starting point, and mark all visited nodes.
 - step 6:
-  compare the calculated cost with the present cost. if the present cost is less than the calculated cost, replace it with the calculated cost.else keep the present cost to that node, reapeat this steps all over till you visit all nodes.
+  compare the calculated cost with the present cost. if the present cost is greater than the calculated cost, replace it with the calculated cost.else keep the present cost to that node, reapeat this steps all over till you visit all nodes.
 ### Map to be followed by the Robot
 The image below is the map to be followed by the Robot with each nose and an estimated distance between them.
 ![image](https://github.com/user-attachments/assets/6ce49664-ca9f-4abd-84c5-e329f8ad9ef2)
