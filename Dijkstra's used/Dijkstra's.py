@@ -16,11 +16,11 @@ def dijkstra(graph, src, dest):
         current_cost, temp = heappop(min_heap)
 
         if temp in visited:
-            continue
+            continue    #Skips already visited nodes
         visited.append(temp)
 
         for neighbor in graph[temp]:
-            cost = node_data[temp]['cost'] + graph[temp][neighbor]
+            cost = node_data[temp]['cost'] + graph[temp][neighbor]    #calculate new path cost
             if cost < node_data[neighbor]['cost']:
                 node_data[neighbor]['cost'] = cost
                 node_data[neighbor]['pred'] = node_data[temp]['pred'] + [temp]
@@ -39,7 +39,7 @@ def draw_graph(graph, pos, shortest_path):
     for node in graph:
         for neighbor in graph[node]:
             if (neighbor, node) in drawn_edges:
-                continue
+                continue    #Skip already drawn edge
             x1, y1 = pos[node]
             x2, y2 = pos[neighbor]
             ax.plot([x1, x2], [y1, y2], color='gray', linewidth=1, zorder=1)
@@ -65,11 +65,11 @@ def draw_graph(graph, pos, shortest_path):
     for node, (x, y) in pos.items():
         ax.text(x, y, node, ha='center', va='center', fontsize=8, weight='bold', color='black', zorder=5)
 
-    ax.axis('off')
+    ax.axis('off')    #Hides axis
     plt.tight_layout()
     plt.show()
 
-#Define grid
+# Define the graph as an adjacency list where the weights represent distances between nodes
 if __name__ == "__main__":
     graph = {
         'A1': {'A': 0.15},
@@ -100,7 +100,7 @@ if __name__ == "__main__":
         'S1': {'S': 0.15},
         'S': {'S1':0.15,'R': 0.10, 'I': 0.50}
     }
-
+    # Define the physical (x, y) coordinates of each node for visualization
     pos = {
         'A1': (0,16),
         'A': (0, 12),
@@ -130,7 +130,7 @@ if __name__ == "__main__":
         'S1':  (18, -4),
         'S': (18, 0)
     }
-
+    # Run Dijkstra algorithm and visualize the result
     source = 'A'
     destination = 'N'
     shortest_path = dijkstra(graph, source, destination)
