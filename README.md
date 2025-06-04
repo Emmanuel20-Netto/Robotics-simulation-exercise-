@@ -35,7 +35,7 @@ The image below is the map to be followed by the Robot with each nose and an est
   5. socket: used for TCP/IP communication between webot and the ESP-32 over wiffi.
   6. network: to manage WI-FI interface.
   7. machine, Pin: Control the GPIO pins on the ESP-32.
-### How to use the code
+### How to use the code's
 - step 1: change the SSID and password using your network.
 - step 2: make sure you are on the same network.
 - step 3: Run the code to optain and IP-address which you later on add to the webot code.
