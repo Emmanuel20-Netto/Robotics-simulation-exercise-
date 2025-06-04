@@ -16,7 +16,7 @@ Identify every point(node) where two lines meet with a letter or number( e.g A..
 - step 3:
   Find the adjescent nodes to between every nodes and write them down as like this (A  = {B, C,}.
 - step 4:
-  use this formular to find the cost of the neighbor node cost(neighbor )= cost(current) + distance (current→neighbor)
+  use this formular to find the cost of the neighbor node; ###cost(neighbor) = cost(current) + distance (current→neighbor)
 - step 5:
    find the minimum cost neighbor for the next starting point, and mark all visited nodes do not    do it two times.
 - step 6:
