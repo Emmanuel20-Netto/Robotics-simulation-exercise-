@@ -69,7 +69,7 @@ def draw_graph(graph, pos, shortest_path):
     plt.tight_layout()
     plt.show()
 
-
+#Define grid
 if __name__ == "__main__":
     graph = {
         'A1': {'A': 0.15},
