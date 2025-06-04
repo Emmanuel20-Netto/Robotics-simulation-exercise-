@@ -25,7 +25,21 @@ Identify every point(node) where two lines meet with a letter or number( e.g A..
 ### Map to be followed by the Robot
 The image below is the map to be followed by the Robot with each nose and an estimated distance between them.
 ![image](https://github.com/user-attachments/assets/6ce49664-ca9f-4abd-84c5-e329f8ad9ef2)
-
+### Requirement and installations
+- To run the following code you must flash your eap32 with the latest bin file available on thonny for this we personoally    used the Variant of Espressive ESP32 WROOM with version 1.25.0.
+- we use a couple of libriaries for both code which included:
+  1. Matplot lib: for ploting and visualisations.
+  2. math: used for replacement on micropython to create arrays.
+  3. json: Handles JSON enconding and decoding.
+  4. time: provides timing for delays.
+  5. socket: used for TCP/IP communication between webot and the ESP-32 over wiffi.
+  6. network: to manage WI-FI interface.
+  7. machine, Pin: Control the GPIO pins on the ESP-32.
+### How to use the code
+- step 1: change the SSID and password using your network.
+- step 2: make sure you are on the same network.
+- step 3: Run the code to optain and IP-address which you later on add to the webot code.
+- step 4: Run the simulation on wwebot, no need to close thonny since information is been sent over wifi.
 
 
 
