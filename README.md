@@ -27,7 +27,7 @@ The image below is the map to be followed by the Robot with each nose and an est
 ![image](https://github.com/user-attachments/assets/6ce49664-ca9f-4abd-84c5-e329f8ad9ef2)
 ### Requirement and installations
 - To run the following code you must flash your eap32 with the latest bin file available on thonny for this we personoally    used the Variant of Espressive ESP32 WROOM with version 1.25.0.
-- we use a couple of libriaries for both code which included:
+- we use a couple of libriaries for both code's which included:
   1. Matplot lib: for ploting and visualisations.
   2. math: used for replacement on micropython to create arrays.
   3. json: Handles JSON enconding and decoding.
