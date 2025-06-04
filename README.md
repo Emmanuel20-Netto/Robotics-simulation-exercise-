@@ -10,17 +10,17 @@ The goal of this simulation is to improve the line following behavior of the e-p
 ### Dijkstra's algorithm 
 Finding the shortest path we will impement dijkstra algorithm in the following steps:
 - step 1:
-Identify every point(node) where two lines meet with a letter or number( e.g A.....D)
+Identify every point(node) where two lines meet with a letter or number(e.g A.....D)
 - step 2:
   Assign the a cost of infinity(∞) to every given node and always set the start node to zero(0) because the distance from the same point to that point is zero(0).
 - step 3:
-  Find the adjescent nodes to between every nodes and write them down as like this (A  = {B, C,}.
+  Find the adjescent nodes to between every nodes and write them down as like this **(A  = {B, C,}**.
 - step 4:
-  use this formular to find the cost of the neighbor node; ###cost(neighbor) = cost(current) + distance (current→neighbor)
+  use this formular to find the cost of the neighbor node **cost(neighbor) = cost(current) + distance (current→neighbor)**
 - step 5:
-   find the minimum cost neighbor for the next starting point, and mark all visited nodes do not    do it two times.
+   find the minimum cost neighbor for the next starting point, and mark all visited nodes.
 - step 6:
-  compare the calculated cost with the present cost. if the present cost is less than the calculated cost, replace it with the calculated cost to get the minimum cost between. if not just keep the present cost to that node.
+  compare the calculated cost with the present cost. if the present cost is less than the calculated cost, replace it with the calculated cost.else keep the present cost to that node, reapeat this steps all over till you visit all nodes.
 ### Map to be followed by the Robot
 The image below is the map to be followed by the Robot with each nose and an estimated distance between them.
 ![image](https://github.com/user-attachments/assets/6ce49664-ca9f-4abd-84c5-e329f8ad9ef2)
