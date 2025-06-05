@@ -60,18 +60,23 @@ REPLAN_INTERVAL_MS = 1000
 class SimplePriorityQueue:
     def __init__(self):
         self._queue = []
-        # initialise an empty list to store items with priorities 
     def put(self, item, priority):
         self._queue.append({'item': item, 'priority': priority})
         self._queue.sort(key=lambda x: x['priority'])
-        
     def get(self):
         if not self.is_empty():
             return self._queue.pop(0)['item']
         return None
-        # checking if the queue is empty
     def is_empty(self):
         return len(self._queue) == 0
+
+def get_valid_neighbors(r, c, rows, cols, grid):
+    neighbors = []
+    for dr, dc in [(0, 1), (0, -1), (1, 0), (-1, 0)]: # Right, Left, Down, Up
+        nr, nc = r + dr, c + dc
+        if 0 <= nr < rows and 0 <= nc < cols and grid[nr][nc] == 0:
+            neighbors.append(((nr, nc), 1))
+    return neighbors
 
 def dijkstra(grid, start_node, end_node):
     rows, cols = len(grid), len(grid[0])
@@ -256,7 +261,27 @@ if __name__ == "__main__":
                                 robot_theta_rad_from_webots = world_pose_data.get('theta_rad', 0.0)
                                 line_sensors_binary_from_webots = webots_data.get('sensors_binary', [0,0,0])
                                 
-
+                                # **** START: Process detected obstacles from Webots ****
+                                obstacles_from_webots = webots_data.get('detected_obstacles', [])
+                                map_updated_by_obstacles = False
+                                if obstacles_from_webots:
+                                    for obs_coord_list in obstacles_from_webots:
+                                        if isinstance(obs_coord_list, list) and len(obs_coord_list) == 2:
+                                            obs_row, obs_col = obs_coord_list[0], obs_coord_list[1]
+                                            if 0 <= obs_row < GRID_ROWS and 0 <= obs_col < GRID_COLS:
+                                                if grid_map[obs_row][obs_col] == 0: # If it was a pathable tile
+                                                    grid_map[obs_row][obs_col] = 1 # Mark as obstacle
+                                                    map_updated_by_obstacles = True
+                                                    print(f"ESP Map Updated: Obstacle added at ({obs_row}, {obs_col})")
+                                            else:
+                                                print(f"WARN: Obstacle coord ({obs_row},{obs_col}) from Webots out of bounds.")
+                                        # else:
+                                            # print(f"WARN: Invalid obstacle format received: {obs_coord_list}") # Optional: for debugging format issues
+                                
+                                if map_updated_by_obstacles:
+                                    path_needs_replan = True
+                                    print("ESP: Grid map updated with new obstacles, forcing replan.")
+                                # **** END: Process detected obstacles from Webots ****
 
                                 if new_robot_pos_actual != current_robot_grid_pos_actual:
                                     current_robot_grid_pos_actual = new_robot_pos_actual
@@ -320,7 +345,7 @@ if __name__ == "__main__":
 
                                 if current_robot_grid_pos_actual == goal_grid_pos:
                                     action_to_send = 'stop'
-                                    print("Endgoal reached (actual pos matches goal)! Sending STOP.")
+                                    print("🎉 Goal Reached (actual pos matches goal)! Sending STOP.")
                                     planned_path = []
                                     path_needs_replan = False
 
@@ -368,5 +393,4 @@ if __name__ == "__main__":
                 led.off()
                 time.sleep(1)
 
-            time.sleep(0.04)
-
+            time.sleep(0.02)
