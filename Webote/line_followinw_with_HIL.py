@@ -386,14 +386,14 @@ while robot.step(timestep) != -1:
             if current_sim_time - turn_phase_start_time > MIN_INITIAL_SPIN_DURATION:
                 webots_internal_turn_phase = 'SEARCHING_LINE'
                 turn_phase_start_time = current_sim_time
-                print(f"🔍 Search for {webots_turn_command_active}")
+                print(f" Search for {webots_turn_command_active}")
         elif webots_internal_turn_phase == 'SEARCHING_LINE':
             s_i, s_o = -FORWARD_SPEED * TURN_SPEED_FACTOR * 0.5, FORWARD_SPEED * TURN_SPEED_FACTOR * 0.9
             next_left_speed, next_right_speed = (s_i, s_o) if webots_turn_command_active == 'turn_left' else (s_o, s_i)
             if sensors_on_line:
                 webots_internal_turn_phase = 'ADJUSTING_ON_LINE'
                 turn_phase_start_time = current_sim_time
-                print(f"✅ Line acquired {webots_turn_command_active}")
+                print(f" Line acquired {webots_turn_command_active}")
             elif not TURN_UNTIL_LINE_FOUND and current_sim_time - turn_phase_start_time > MAX_SEARCH_SPIN_DURATION:
                 print(f"Search Timeout {webots_turn_command_active}") # Corrected print
                 webots_internal_turn_phase = 'NONE'
