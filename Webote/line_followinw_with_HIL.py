@@ -130,7 +130,7 @@ def update_visualization(rwp_val, crgp_val, path_esp):
         for c_idx in range(GRID_COLS + 1): ax.plot([GRID_ORIGIN_X + c_idx * GRID_CELL_SIZE]*2, [GRID_ORIGIN_Z, GRID_ORIGIN_Z + GRID_ROWS * GRID_CELL_SIZE], 'k-', alpha=0.2, lw=0.5)
         margin = GRID_CELL_SIZE * 2; ax.set_xlim(GRID_ORIGIN_X - margin, GRID_ORIGIN_X + GRID_COLS * GRID_CELL_SIZE + margin); ax.set_ylim(GRID_ORIGIN_Z - margin, GRID_ORIGIN_Z + GRID_ROWS * GRID_CELL_SIZE + margin)
         from matplotlib.patches import Patch
-        legend_elements = [Patch(fc='black',label='Pathable'), Patch(fc='lightgrey',label='Obstacle (Grid)'), Patch(fc='red',label='Detected Obstacle'), plt.Line2D([0],[0],color='cyan',lw=2,label='Trail'), plt.Line2D([0],[0],color='magenta',marker='o',ls='--',label='Path (ESP)'), plt.Line2D([0],[0],color='red',marker='o',ls='',label='Robot'), plt.Line2D([0],[0],color='green',marker='*',ls='',label='Goal')]
+        legend_elements = [Patch(fc='black',label='Pathable'), Patch(fc='lightgrey',label='Obstacle (Grid)'), plt.Line2D([0],[0],color='cyan',lw=2,label='Trail'), plt.Line2D([0],[0],color='magenta',marker='o',ls='--',label='Path (ESP)'), plt.Line2D([0],[0],color='red',marker='o',ls='',label='Robot'), plt.Line2D([0],[0],color='green',marker='*',ls='',label='Goal')]
         ax.legend(handles=legend_elements, loc='upper left', bbox_to_anchor=(1.02,1)); plt.tight_layout(); plt.show(block=False); plt.pause(0.01)
 
     # Clear previous dynamic elements
@@ -222,8 +222,8 @@ def connect_to_esp32_func():
         if client_socket: client_socket.close()
         client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         client_socket.settimeout(2.0); client_socket.connect((ESP32_IP_ADDRESS, ESP32_PORT))
-        client_socket.settimeout(0.05); is_connected = True; print("✅ ESP32 Connected.")
-    except Exception as e: print(f"❌ ESP32 Conn Fail: {e}"); is_connected=False; client_socket=None
+        client_socket.settimeout(0.05); is_connected = True; print("ESP32 Connected.")
+    except Exception as e: print(f"ESP32 Conn Fail: {e}"); is_connected=False; client_socket=None
 
 INITIAL_GRID_ROW, INITIAL_GRID_COL = 2, 20
 rwp_estimate['x'], rwp_estimate['z'] = grid_to_world_center(INITIAL_GRID_ROW, INITIAL_GRID_COL)
@@ -411,7 +411,7 @@ while robot.step(timestep) != -1:
             elif left_gs and not center_gs and not right_gs: next_left_speed,next_right_speed = b-a_d,b
             elif not left_gs and not center_gs and right_gs: next_left_speed,next_right_speed = b,b-a_d
             elif not sensors_on_line:
-                print(f"❌ Line lost during adjust. Re-search.")
+                print(f"Line lost during adjust. Re-search.")
                 webots_internal_turn_phase = 'SEARCHING_LINE'
                 turn_phase_start_time = current_sim_time
             else:
