@@ -16,8 +16,8 @@ from machine import Pin
 import math
 
 # --- WiFi Configuration ---
-WIFI_SSID = 'Ziggo4976744'        # Replace with your WiFi SSID
-WIFI_PASSWORD = 'rzfpwr7fyyHf' # Replace with your WiFi password
+WIFI_SSID = 'AIVD_Afluisterkraai_D1.58        # Replace with your WiFi SSID
+WIFI_PASSWORD = 'smikkelbeer' # Replace with your WiFi password
 SERVER_PORT = 8080
 
 # --- Onboard LED ---
