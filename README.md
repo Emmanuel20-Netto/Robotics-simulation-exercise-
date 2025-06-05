@@ -41,7 +41,8 @@ The image below is the map to be followed by the Robot with each nose and an est
 - step 3: Run the code to optain and IP-address which you later on add to the webot code.
 - step 4: Run the simulation on wwebot, no need to close thonny since information is been sent over wifi.
 ### Communication between Webot and ESP-32 Flow chart
-![image](https://github.com/user-attachments/assets/2fde35b7-07d1-4818-91a1-39e566ef7f03)
+![image](https://github.com/user-attachments/assets/f3d5570f-5075-41cf-8da2-89235306bd5b)
+
 ### Authors and Credits
 - Authors Emmanuel Tenneng Nji / Simon Poelma
 - This would not be possible without the help from Simonf9 
