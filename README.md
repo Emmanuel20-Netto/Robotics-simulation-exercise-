@@ -29,7 +29,7 @@ The image below is the map to be followed by the Robot with each nose and an est
 - To run the following code you must flash your eap32 with the latest bin file available on thonny for this we personoally    used the Variant of Espressive ESP32 WROOM with version 1.25.0.
 - we use a couple of libriaries for both code's which included:
   1. Matplot lib: for ploting and visualisations.
-  2. math: used for replacement on micropython to create arrays.
+  2. math: used as a replacement for numpy.
   3. json: Handles JSON enconding and decoding.
   4. time: provides timing for delays.
   5. socket: used for TCP/IP communication between webot and the ESP-32 over wiffi.
