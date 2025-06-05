@@ -23,7 +23,8 @@ Identify every point(node) where two lines meet with a letter or number(e.g A...
   compare the calculated cost with the present cost. if the present cost is greater than the calculated cost, replace it with the calculated cost.else keep the present cost to that node, reapeat this steps all over till you visit all nodes.
 ### Map to be followed by the Robot
 The image below is the map to be followed by the Robot with each nose and an estimated distance between them.
-![image](https://github.com/user-attachments/assets/6796d63a-7244-4195-8cac-ea765e1876f9)
+![image](https://github.com/user-attachments/assets/cffa7d7e-ce08-4cb9-982e-c197f41d3e9d)
+
 ### Requirement and installations
 - To run the following code you must flash your eap32 with the latest bin file available on thonny for this we personoally    used the Variant of Espressive ESP32 WROOM with version 1.25.0.
 - we use a couple of libriaries for both code's which included:
@@ -40,7 +41,8 @@ The image below is the map to be followed by the Robot with each nose and an est
 - step 3: Run the code to optain and IP-address which you later on add to the webot code.
 - step 4: Run the simulation on wwebot, no need to close thonny since information is been sent over wifi.
 ### Communication between Webot and ESP-32 Flow chart
-![image](https://github.com/user-attachments/assets/f3d5570f-5075-41cf-8da2-89235306bd5b)
+![image](https://github.com/user-attachments/assets/21930b5f-c127-4cad-84ad-9401ef523b0d)
+
 
 ### Authors and Credits
 - Authors Emmanuel Tenneng Nji / Simon Poelma
