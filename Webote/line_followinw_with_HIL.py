@@ -12,7 +12,7 @@ ESP32_PORT = 8080
 # Parameters are in meters
 # Robot Parameters
 WHEEL_RADIUS = 0.0205
-AXLE_LENGTH = 0.057
+AXLE_LENGTH = 0.0582
 
 # Grid Configuration
 GRID_ROWS = 15
@@ -65,16 +65,10 @@ world_grid = [
     [0,1,0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
 ]
 
-SIMULATED_STATIC_OBSTACLES = [(5, 10)]
 detected_obstacles_grid = set()
 recent_new_obstacles = []
 
-for obs_row, obs_col in SIMULATED_STATIC_OBSTACLES:
-    if 0 <= obs_row < GRID_ROWS and 0 <= obs_col < GRID_COLS:
-        world_grid[obs_row][obs_col] = 1
-        detected_obstacles_grid.add((obs_row, obs_col))
-        recent_new_obstacles.append((obs_row, obs_col))
-        print(f"INFO: Simulated static obstacle added at ({obs_row}, {obs_col})")
+
 
 plt.ion()
 fig, ax = None, None # Initialise plot
@@ -130,7 +124,7 @@ def update_visualization(rwp_val, crgp_val, path_esp):
 
     if fig is None:
         fig, ax = plt.subplots(figsize=(12, 9))
-        ax.set_aspect('equal'); ax.set_title('HIL Navigation (Command-Based Odometry)', fontsize=14, fontweight='bold')
+        ax.set_aspect('equal'); ax.set_title('Dijkstra', fontsize=12, fontweight='bold')
         ax.set_xlabel('World X (m)'); ax.set_ylabel('World Z (m)')
         for r_idx in range(GRID_ROWS + 1): ax.plot([GRID_ORIGIN_X, GRID_ORIGIN_X + GRID_COLS * GRID_CELL_SIZE], [GRID_ORIGIN_Z + r_idx * GRID_CELL_SIZE]*2, 'k-', alpha=0.2, lw=0.5)
         for c_idx in range(GRID_COLS + 1): ax.plot([GRID_ORIGIN_X + c_idx * GRID_CELL_SIZE]*2, [GRID_ORIGIN_Z, GRID_ORIGIN_Z + GRID_ROWS * GRID_CELL_SIZE], 'k-', alpha=0.2, lw=0.5)
