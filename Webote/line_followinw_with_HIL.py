@@ -23,8 +23,8 @@ GRID_ORIGIN_X = 0.050002
 GRID_ORIGIN_Z = -0.639e-05
 
 #Change goal position
-GOAL_ROW = 14 
-GOAL_COL = 0 
+GOAL_ROW = 0
+GOAL_COL = 20
 
 # Parameters
 FORWARD_SPEED = 2.5 # rad/s
@@ -227,9 +227,9 @@ def connect_to_esp32_func():
     except Exception as e: print(f"ESP32 Conn Fail: {e}"); is_connected=False; client_socket=None
 
 #Starting position
-INITIAL_GRID_ROW, INITIAL_GRID_COL = 2, 20
+INITIAL_GRID_ROW, INITIAL_GRID_COL = 14, 0
 rwp_estimate['x'], rwp_estimate['z'] = grid_to_world_center(INITIAL_GRID_ROW, INITIAL_GRID_COL)
-rwp_estimate['theta'] = math.pi # Start West
+rwp_estimate['theta'] = -math.pi/2 # Orientation facing south
 crgp_estimated = world_to_grid(rwp_estimate['x'], rwp_estimate['z'])
 
 print(f"Robot init @ grid {crgp_estimated}, est.world ({rwp_estimate['x']:.2f},{rwp_estimate['z']:.2f}), Θ={math.degrees(rwp_estimate['theta']):.0f}°")
