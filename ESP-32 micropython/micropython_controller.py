@@ -60,13 +60,16 @@ REPLAN_INTERVAL_MS = 1000
 class SimplePriorityQueue:
     def __init__(self):
         self._queue = []
+        # initialise an empty list to store items with priorities 
     def put(self, item, priority):
         self._queue.append({'item': item, 'priority': priority})
         self._queue.sort(key=lambda x: x['priority'])
+        
     def get(self):
         if not self.is_empty():
             return self._queue.pop(0)['item']
         return None
+        # checking if the queue is empty
     def is_empty(self):
         return len(self._queue) == 0
 
