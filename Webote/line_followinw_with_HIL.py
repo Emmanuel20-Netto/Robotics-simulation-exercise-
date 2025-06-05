@@ -22,8 +22,9 @@ GRID_CELL_SIZE = 0.051
 GRID_ORIGIN_X = 0.050002
 GRID_ORIGIN_Z = -0.639e-05
 
-GOAL_ROW = 14
-GOAL_COL = 0
+#Change goal position
+GOAL_ROW = 14 
+GOAL_COL = 0 
 
 # Parameters
 FORWARD_SPEED = 2.5 # rad/s
@@ -225,6 +226,7 @@ def connect_to_esp32_func():
         client_socket.settimeout(0.05); is_connected = True; print("ESP32 Connected.")
     except Exception as e: print(f"ESP32 Conn Fail: {e}"); is_connected=False; client_socket=None
 
+#Starting position
 INITIAL_GRID_ROW, INITIAL_GRID_COL = 2, 20
 rwp_estimate['x'], rwp_estimate['z'] = grid_to_world_center(INITIAL_GRID_ROW, INITIAL_GRID_COL)
 rwp_estimate['theta'] = math.pi # Start West
